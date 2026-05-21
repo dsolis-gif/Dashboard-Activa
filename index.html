@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Activa | Liverpool — Mayo 2026</title>
+<title>Activa | Liverpool — Corte 12 Mayo 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -29,8 +29,8 @@
   --border-strong: #C0C0C0;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; overflow: hidden; background: var(--white); color: var(--black); font-family: 'Roboto', sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }
-.app { display: flex; flex-direction: column; height: 100vh; }
+html, body { min-height: 100%; background: var(--white); color: var(--black); font-family: 'Roboto', sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }
+.app { display: flex; flex-direction: column; min-height: 100vh; }
 
 /* ── HEADER ── */
 .hdr {
@@ -62,7 +62,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 .tab.active { color: var(--white); background: var(--red); border-bottom-color: var(--red); }
 
 /* ── CONTENT ── */
-.content { flex: 1; overflow-y: auto; padding: 28px 36px 48px; background: var(--white); }
+.content { flex: 1; padding: 24px 36px 48px; background: var(--white); }
 .panel { display: none; }
 .panel.active { display: block; }
 
@@ -241,6 +241,56 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--gray-pale); }
 ::-webkit-scrollbar-thumb { background: var(--red-mid); border-radius: 2px; }
+
+/* ── RESPONSIVE ── */
+
+/* Tablet (≤900px) */
+@media (max-width: 900px) {
+  .hdr { padding: 0 20px; height: 52px; }
+  .hdr-logo-img { height: 24px; }
+  .tabs { padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab { padding: 10px 12px; font-size: 10px; white-space: nowrap; }
+  .content { padding: 16px 20px 40px; }
+  .kpi-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .hl-row { grid-template-columns: 1fr; }
+  .charts-row { grid-template-columns: 1fr; }
+  .channel-grid { grid-template-columns: 1fr; }
+  .init-kpi-row { grid-template-columns: 1fr 1fr; }
+  .tier-grid { grid-template-columns: 1fr; gap: 8px; }
+  .init-metas-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer { padding: 8px 20px; flex-direction: column; gap: 4px; font-size: 9px; }
+  .tbl { font-size: 11px; }
+  .tbl thead th, .tbl tbody td { padding: 7px 8px; }
+}
+
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  .hdr { padding: 0 14px; height: 48px; }
+  .hdr-logo-img { height: 20px; }
+  .hdr-subtitle { font-size: 8px; }
+  .tabs { padding: 0 8px; }
+  .tab { padding: 9px 10px; font-size: 9px; }
+  .content { padding: 12px 14px 32px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px; }
+  .kpi-val { font-size: 22px; }
+  .hl-row { grid-template-columns: 1fr; gap: 10px; }
+  .charts-row { grid-template-columns: 1fr; gap: 10px; }
+  .channel-grid { grid-template-columns: 1fr; }
+  .reactiva-grid { grid-template-columns: 1fr !important; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .init-metas-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .init-hdr { flex-wrap: wrap; gap: 8px; }
+  .init-btn { width: 100%; text-align: center; }
+  .section-lbl { font-size: 8px; }
+  .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tbl { font-size: 10px; min-width: 480px; }
+  .tbl thead th, .tbl tbody td { padding: 6px 7px; }
+  .brecha-box { padding: 14px; }
+  .chart-box { padding: 14px; }
+  .charts-row { margin-bottom: 12px; }
+  .footer { padding: 8px 14px; flex-direction: column; gap: 3px; font-size: 8px; }
+  .seg-def { flex-direction: column; gap: 6px; }
+}
 </style>
 </head>
 <body>
@@ -251,7 +301,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
   <div class="hdr-logo-wrap">
     <!-- Activa | Liverpool logo (SVG inline) -->
     <img class="hdr-logo-img" src="data:image/png;base64,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YKvEuG5pCXGjlj5em1/u8Q5g9LgOgKMG7E2PzU7jsU4aEOv84DMTp2bn/VSRgnbVwhWQMjxdhu6Wmp00dJRltTCT5eJa4Dq0K9qdrPJQRb4vtwLtNdwWybXs97p+tB5zKjY+wZhqshueL7jLiiriIc2nMXI0gPWzUl/pOh6QrBYkvlgwdhqe7XmspbVaaGLwnv0YxjQNA1oHOegNHE8wVY8dba+GqWCSLBmF7hcajTRs1wc2CIHy7rS5zh1eCqpZsZq42zOuYrMVXZ80MbiaeihG5TwfesHT/eOp60En5gbUGKLlnbQYyw8ZKayWhzoaO3Su0bUQOI5QygfCeAPvdG6c2pvDlJmPhnM3CkN/w3WNeCA2ppXkCalk04se3o6jzEcQsl13+BMZYmwPfo73ha71FsrWcC6I+DI3+i9p4Ob1EFBoLnTsxYCzErJrxR8phy9zEukqaNgMUzv6UkR0BPW0tJ6dVAdfsS46jqS2hxbh6og14PlbNG7Tyloa4D5SvTZd7bEYp4qXH2FpHStADq20uGjusxPI0PY70KUqXa2yWmhEkl5udO4/7uS2ylw/JBH60Eb5f7E9BTVcdVjnFbq+Np1NHbYjE13UZXcdOxoPWrU4Yw/h/B+HorRYbfSWq10jCWxxANa0c5c4nnPSXE6+VV9xXtm5b2+BwsFqvd6qNPB3om08Xpc4l3+VVjzp2i8wMzIZbbPUR2Wxv4Ot1C4gSDySPPhP7ODepBI+2ftA02LBJl9gqs5WyRSA3KujPg1j2nhGw9MYI1J+EQNOA414yu8ZmFvPNJ65i84u3wTcaez4zsl2q9/veiuNPUy7g1duMka46DpOgKDYB3vT2LHO8fXes+Pf9IrQM7Y2UJBHJYk/QGfxFnxcJWz19ROzXdklc9uvPoSSg/BERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERBKOzB4z5fMV1/YplFylHZg8Z8vmK6/sUyi5AREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQFbLua/2cYt82xetVTVbLua/2cYt82xetQTD3QL7X5/nam/8Aus7Fon3QL7X5/nam/wDus7EBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQSjsweM+XzFdf2KZRcpR2YPGfL5iuv7FMouQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBe7ydzVxVlVcq+4YVNDy1dC2GbvqDlButdqNOI0Oq8IiCW81doTMHMrChw1iQ2k0BnZP8A6tSGN+8zXTjvHhxKiREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERBKOzB4z5fMV1/YplFylHZg8Z8vmK6/sUyi5AREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREEo7MHjPl8xXX9imUXKUdmDxny+Yrr+xTKLkBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf//Z" alt="Activa | Liverpool">
-    <div class="hdr-subtitle">Dashboard de resultados · Mayo 2026</div>
+    <div class="hdr-subtitle">Corte al 12 de mayo 2026</div>
   </div>
 </header>
 
@@ -261,7 +311,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
   <div class="tab" data-tab="resultados">Resultados</div>
   <div class="tab" data-tab="adquisicion">Adquisición</div>
   <div class="tab" data-tab="iniciativas">Seguimiento Iniciativas</div>
-  <div class="tab" data-tab="enfoque">Enfoque Mayo</div>
+  <div class="tab" data-tab="enfoque">Enfoque Junio</div>
 </nav>
 
 <div class="content">
@@ -269,79 +319,68 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 <!-- ════════ RESUMEN ════════ -->
 <div class="panel active" id="panel-resumen">
 
-  <div class="section-lbl">Acumulado al cierre de abril 2026</div>
+  <div class="section-lbl">Acumulado al 12 de mayo 2026</div>
   <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:20px;">
     <div class="kpi-card">
       <div class="kpi-lbl">Cuentas acumuladas</div>
-      <div class="kpi-val">185,512</div>
-      <div class="kpi-delta pos">+7.4% vs. marzo</div>
+      <div class="kpi-val">186,455</div>
+      <div class="kpi-delta pos">+0.5% vs. abril</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-lbl">Clientes acumulados</div>
-      <div class="kpi-val">35,747</div>
-      <div class="kpi-delta pos">+9.5% vs. marzo</div>
+      <div class="kpi-val">32,957</div>
+      <div class="kpi-delta neg">−8.4% vs. abril</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-lbl">AUM totales</div>
-      <div class="kpi-val">$221.9M</div>
-      <div class="kpi-delta pos">+5.3% vs. marzo</div>
+      <div class="kpi-val">$224.6M</div>
+      <div class="kpi-delta pos">+1.2% vs. abril</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-lbl">% Fondeo cuentas totales</div>
-      <div class="kpi-val">19.3%</div>
-      <div class="kpi-delta pos">+2.4 pp vs. marzo</div>
+      <div class="kpi-val">17.7%</div>
+      <div class="kpi-delta neg">−1.6 pp vs. abril</div>
       <div class="kpi-sub">Clientes / Cuentas acumuladas</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-lbl">Saldo promedio por cliente</div>
-      <div class="kpi-val">$6,736</div>
-      <div class="kpi-delta neg">−$291 vs. marzo</div>
+      <div class="kpi-val">$6,815</div>
+      <div class="kpi-delta pos">+$79 vs. abril</div>
       <div class="kpi-sub">AUM total / Clientes acumulados</div>
     </div>
   </div>
 
-  <div class="section-lbl">Solo en el mes de abril 2026</div>
-  <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr);margin-bottom:24px;">
+  <div class="section-lbl">Mayo 2026 — parcial al día 12</div>
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
     <div class="kpi-card kpi-card--muted">
       <div class="kpi-lbl">Cuentas nuevas</div>
-      <div class="kpi-val">12,855</div>
-      <div class="kpi-delta neg">−2.3% vs. marzo</div>
+      <div class="kpi-val">984</div>
+      <div class="kpi-delta neg">Parcial: 12 días</div>
     </div>
     <div class="kpi-card kpi-card--muted">
       <div class="kpi-lbl">Clientes nuevos</div>
-      <div class="kpi-val">4,545</div>
-      <div class="kpi-delta pos">+72.0% vs. marzo</div>
+      <div class="kpi-val">556</div>
+      <div class="kpi-delta neg">Parcial: 12 días</div>
     </div>
     <div class="kpi-card kpi-card--muted">
       <div class="kpi-lbl">AUM captado en el mes</div>
-      <div class="kpi-val">$11.1M</div>
-      <div class="kpi-delta pos">Acum. $221.9M</div>
-    </div>
-    <div class="kpi-card kpi-card--muted">
-      <div class="kpi-lbl">% Fondeo cuentas nuevas</div>
-      <div class="kpi-val">35.4%</div>
-      <div class="kpi-delta pos">+15.3 pp vs. marzo</div>
-      <div class="kpi-sub">Clientes nuevos / Cuentas nuevas</div>
-    </div>
-    <div class="kpi-card kpi-card--muted">
-      <div class="kpi-lbl">Saldo promedio por cliente</div>
-      <div class="kpi-val">$6,736</div>
-      <div class="kpi-delta neg">−4.1% vs. marzo</div>
+      <div class="kpi-val">$2.7M</div>
+      <div class="kpi-delta pos">Acum. $224.6M</div>
     </div>
   </div>
 
   <div class="hl-row">
     <div class="hl-box hl-box-pos">
       <div class="hl-tag pos">Punto a considerar</div>
-      <div class="hl-text"><strong>Clientes nuevos en abril: +72% vs. marzo.</strong> La tasa de fondeo de cuentas nuevas subió de 20% a 35%. El resultado refleja el impulso de la campaña Re-Activa lanzada en el mes, actualmente en curso (para mayor detalle revisar la pestaña "Adquisición").</div>
+      <div class="hl-text"><strong>% Fondeo cuentas nuevas al 12 de mayo: 56.5%</strong>, muy por encima del 35.4% de abril. La campaña Re-Activa y la estrategia de activación digital están impactando la calidad de las cuentas abiertas en el mes.</div>
     </div>
     <div class="hl-box hl-box-neg">
       <div class="hl-tag neg">Riesgo identificado</div>
-      <div class="hl-text"><strong>El reto sigue siendo la poca efectividad para captar al cliente objetivo de valor.</strong> La tasa de fondeo en tienda física es de apenas 3.2%, contra 37.3% en digital — una brecha de 12x. La mayoría de los clientes captados permanece en segmento bajo.</div>
+      <div class="hl-text"><strong>Los clientes acumulados caen vs. abril (32,957 vs. 35,747).</strong> Esto refleja una depuración de base o ajuste metodológico que requiere alineación con el equipo de datos. El fondeo acumulado también baja a 17.7% — señal de que el crecimiento de cuentas supera la activación.</div>
     </div>
   </div>
 
-  <div class="section-lbl">Evolutivo del negocio — distribución por tipo de cliente</div>
+  <div class="section-lbl">Evolutivo del negocio — distribución por tipo de cliente (Ene–May 2026)</div>
   <div class="chart-box">
     <div class="chart-box-title">Clientes acumulados por segmento · Ene – Abr 2026</div>
     <canvas id="chartSegmentos"></canvas>
@@ -355,12 +394,12 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
         </tr>
       </thead>
       <tbody>
-        <tr><td style="color:var(--red);font-weight:700;">Valor alto (&gt;$20k)</td><td style="color:var(--red);font-weight:700;">2,671</td><td style="color:var(--red);font-weight:700;">7.5%</td><td style="color:var(--red);font-weight:700;">~$177.5M</td><td style="color:var(--red);font-weight:700;">~80%</td></tr>
-        <tr><td>Valor medio ($5k–$20k)</td><td>3,126</td><td>8.7%</td><td>~$37.5M</td><td>~17%</td></tr>
-        <tr><td style="color:var(--gray-mid);">Valor bajo ($1–$4,999)</td><td style="color:var(--gray-mid);">29,950</td><td style="color:var(--gray-mid);">83.8%</td><td style="color:var(--gray-mid);">~$6.9M</td><td style="color:var(--gray-mid);">~3%</td></tr>
+        <tr><td style="color:var(--red);font-weight:700;">Valor alto (&gt;$20k)</td><td style="color:var(--red);font-weight:700;">2,693</td><td style="color:var(--red);font-weight:700;">8.2%</td><td style="color:var(--red);font-weight:700;">~$180.5M</td><td style="color:var(--red);font-weight:700;">~80%</td></tr>
+        <tr><td>Valor medio ($5k–$20k)</td><td>3,084</td><td>9.4%</td><td>~$30.0M</td><td>~13%</td></tr>
+        <tr><td style="color:var(--gray-mid);">Valor bajo ($1–$4,999)</td><td style="color:var(--gray-mid);">27,180</td><td style="color:var(--gray-mid);">82.4%</td><td style="color:var(--gray-mid);">~$14.2M</td><td style="color:var(--gray-mid);">~6%</td></tr>
         <tr style="border-top:2px solid var(--red-border);"><td style="font-weight:700;">Total</td><td style="font-weight:700;">35,747</td><td style="color:var(--gray-mid);">100%</td><td style="font-weight:700;">$221.9M</td><td style="color:var(--gray-mid);">100%</td></tr>
       </tbody>
-      <tfoot><tr><td colspan="5">AUM por segmento estimados con base en saldo promedio · Cierre abril 2026</td></tr></tfoot>
+      <tfoot><tr><td colspan="5">AUM por segmento al 12 de mayo 2026 · Fuente: equipo de datos</td></tr></tfoot>
     </table>
   </div>
 
@@ -392,34 +431,34 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
   <div class="tbl-wrap">
     <table class="tbl">
       <thead>
-        <tr><th>KPI</th><th>Ene-26</th><th>Feb-26</th><th>Mar-26</th><th>Abr-26</th><th>Var. vs Marzo</th><th>Var %</th></tr>
+        <tr><th>KPI</th><th>Ene-26</th><th>Feb-26</th><th>Mar-26</th><th>Abr-26</th><th>May-26*</th><th>Var. vs Abr</th><th>Var %</th></tr>
       </thead>
       <tbody>
         <tr class="tbl-section-hdr"><td colspan="7">Cuentas</td></tr>
-        <tr><td>Cuentas acumuladas</td><td>147,767</td><td>159,009</td><td>172,652</td><td>185,512</td><td class="pos">+12,860</td><td class="pos">+7.4%</td></tr>
-        <tr><td>Cuentas nuevas en mes</td><td>10,115</td><td>11,358</td><td>13,156</td><td>12,855</td><td class="neg">−301</td><td class="neg">−2.3%</td></tr>
+        <tr><td>Cuentas acumuladas</td><td>147,767</td><td>159,009</td><td>172,652</td><td>185,512</td><td>186,455</td><td class="pos">+943</td><td class="pos">+0.5%</td></tr>
+        <tr><td>Cuentas nuevas en mes</td><td>10,115</td><td>11,358</td><td>13,156</td><td>12,855</td><td>984*</td><td class="neg">−92.3%</td><td class="neg">parcial</td></tr>
         <tr class="tbl-section-hdr"><td colspan="7">Clientes</td></tr>
-        <tr><td>Clientes acumulados</td><td>30,332</td><td>31,587</td><td>32,685</td><td>35,747</td><td class="pos">+3,062</td><td class="pos">+9.4%</td></tr>
-        <tr><td>Clientes nuevos en mes</td><td>2,214</td><td>2,447</td><td>2,643</td><td>4,545</td><td class="pos">+1,902</td><td class="pos">+72.0%</td></tr>
-        <tr><td>% Fondeo cuentas totales</td><td>20.5%</td><td>19.9%</td><td>18.9%</td><td>19.3%</td><td class="pos">+0.4 pp</td><td class="pos">+2.1%</td></tr>
-        <tr><td>% Fondeo cuentas nuevas</td><td>21.9%</td><td>21.5%</td><td>20.1%</td><td>35.4%</td><td class="pos">+15.3 pp</td><td class="pos">+76.0%</td></tr>
-        <tr><td>Clientes en riesgo cancelación</td><td>2,237</td><td>2,472</td><td>2,694</td><td>2,810</td><td class="neg">+116</td><td class="neg">+4.3%</td></tr>
+        <tr><td>Clientes acumulados</td><td>30,332</td><td>31,587</td><td>32,685</td><td>35,747</td><td>32,957</td><td class="neg">−2,790</td><td class="neg">−7.8%</td></tr>
+        <tr><td>Clientes nuevos en mes</td><td>2,214</td><td>2,447</td><td>2,643</td><td>4,545</td><td>556*</td><td class="neg">−87.8%</td><td class="neg">parcial</td></tr>
+        <tr><td>% Fondeo cuentas totales</td><td>20.5%</td><td>19.9%</td><td>18.9%</td><td>19.3%</td><td>17.7%</td><td class="neg">−1.6 pp</td><td class="neg">−8.3%</td></tr>
+        <tr><td>% Fondeo cuentas nuevas</td><td>21.9%</td><td>21.5%</td><td>20.1%</td><td>35.4%</td><td>56.5%</td><td class="pos">+21.1 pp</td><td class="pos">+59.6%</td></tr>
+        <tr><td>Clientes en riesgo cancelación</td><td>2,237</td><td>2,472</td><td>2,694</td><td>2,810</td><td>2,757</td><td class="pos">−53</td><td class="pos">−1.9%</td></tr>
         <tr class="tbl-section-hdr"><td colspan="7">Clientes por segmento (acumulado)</td></tr>
-        <tr><td>Valor bajo (incl. riesgo cancelación)</td><td>24,822</td><td>26,009</td><td>27,155</td><td>29,950</td><td class="pos">+2,795</td><td class="pos">+10.3%</td></tr>
-        <tr><td>Valor medio ($5k–$20k)</td><td>3,105</td><td>3,090</td><td>2,993</td><td>3,126</td><td class="pos">+133</td><td class="pos">+4.4%</td></tr>
-        <tr><td>Valor alto (&gt;$20k)</td><td>2,405</td><td>2,488</td><td>2,537</td><td>2,671</td><td class="pos">+134</td><td class="pos">+5.3%</td></tr>
+        <tr><td>Valor bajo (incl. riesgo cancelación)</td><td>24,822</td><td>26,009</td><td>27,155</td><td>29,950</td><td>27,180</td><td class="neg">−2,770</td><td class="neg">−9.2%</td></tr>
+        <tr><td>Valor medio ($5k–$20k)</td><td>3,105</td><td>3,090</td><td>2,993</td><td>3,126</td><td>3,084</td><td class="neg">−42</td><td class="neg">−1.3%</td></tr>
+        <tr><td>Valor alto (&gt;$20k)</td><td>2,405</td><td>2,488</td><td>2,537</td><td>2,671</td><td>2,693</td><td class="pos">+22</td><td class="pos">+0.8%</td></tr>
         <tr class="tbl-section-hdr"><td colspan="7">AUM</td></tr>
-        <tr><td>AUM total ($MDP)</td><td>194.7</td><td>207.6</td><td>210.7</td><td>221.9</td><td class="pos">+11.1</td><td class="pos">+5.3%</td></tr>
-        <tr><td>AUM Cuenta Eje ($MDP)</td><td>86.4</td><td>89.6</td><td>100.7</td><td>104.6</td><td class="pos">+3.9</td><td class="pos">+3.9%</td></tr>
-        <tr><td>AUM Fondos ($MDP)</td><td>108.3</td><td>118.0</td><td>110.0</td><td>117.2</td><td class="pos">+7.2</td><td class="pos">+6.6%</td></tr>
-        <tr><td>Saldo promedio por cliente ($)</td><td>6,929</td><td>7,129</td><td>7,027</td><td>6,736</td><td class="neg">−$291</td><td class="neg">−4.1%</td></tr>
+        <tr><td>AUM total ($MDP)</td><td>194.7</td><td>207.6</td><td>210.7</td><td>221.9</td><td>224.6</td><td class="pos">+2.7</td><td class="pos">+1.2%</td></tr>
+        <tr><td>AUM Cuenta Eje ($MDP)</td><td>86.4</td><td>89.6</td><td>100.7</td><td>104.6</td><td>105.1</td><td class="pos">+0.5</td><td class="pos">+0.5%</td></tr>
+        <tr><td>AUM Fondos ($MDP)</td><td>108.3</td><td>118.0</td><td>110.0</td><td>117.2</td><td>119.5</td><td class="pos">+2.3</td><td class="pos">+1.9%</td></tr>
+        <tr><td>Saldo promedio por cliente ($)</td><td>6,929</td><td>7,129</td><td>7,027</td><td>6,736</td><td>6,815</td><td class="pos">+$79</td><td class="pos">+1.2%</td></tr>
         <tr class="tbl-section-hdr"><td colspan="7">Transaccionalidad TDD</td></tr>
-        <tr><td>Clientes que aumentaron límite (acum.)</td><td>1,001</td><td>1,163</td><td>1,247</td><td>1,318</td><td class="pos">+71</td><td class="pos">+5.7%</td></tr>
-        <tr><td>Transacciones TDD — monto total ($MDP)</td><td>4.16</td><td>3.84</td><td>4.29</td><td>3.40</td><td class="neg">−0.89</td><td class="neg">−20.7%</td></tr>
-        <tr><td>Transacciones TDD — promedio por cliente</td><td>1.74</td><td>1.78</td><td>1.86</td><td>1.89</td><td class="pos">+0.03</td><td class="pos">+1.6%</td></tr>
-        <tr><td>Transacciones TDD — importe promedio ($)</td><td>$948</td><td>$883</td><td>$860</td><td>$860</td><td class="dim">—</td><td class="dim">—</td></tr>
+        <tr><td>Clientes que aumentaron límite (acum.)</td><td>1,001</td><td>1,163</td><td>1,247</td><td>1,318</td><td>1,149</td><td class="neg">−169</td><td class="neg">−12.8%</td></tr>
+        <tr><td>Transacciones TDD — monto total ($MDP)</td><td>4.16</td><td>3.84</td><td>4.29</td><td>3.40</td><td>1.14*</td><td class="neg">−2.26</td><td class="neg">parcial</td></tr>
+        <tr><td>Transacciones TDD — promedio por cliente</td><td>1.74</td><td>1.78</td><td>1.86</td><td>1.89</td><td>—</td><td class="dim">—</td><td class="dim">—</td></tr>
+        <tr><td>Transacciones TDD — importe promedio ($)</td><td>$948</td><td>$883</td><td>$860</td><td>$860</td><td>$498</td><td class="pos">+$46</td><td class="pos">+10.0%</td></tr>
       </tbody>
-      <tfoot><tr><td colspan="7">Fuente: Sistema Actinver · Cierre abril 2026 · AUM en millones de pesos</td></tr></tfoot>
+      <tfoot><tr><td colspan="8">Fuente: Sistema Actinver · * Mayo = corte parcial al 12 de mayo 2026 · AUM en millones de pesos</td></tr></tfoot>
     </table>
   </div>
 </div>
@@ -438,7 +477,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 
   <div class="tbl-wrap" style="margin-bottom:20px;">
     <table class="tbl">
-      <thead><tr><th>KPI</th><th>Ene-26</th><th>Feb-26</th><th>Mar-26</th><th>Abr-26</th><th>Var. vs Marzo</th><th>Var %</th></tr></thead>
+      <thead><tr><th>KPI</th><th>Ene-26</th><th>Feb-26</th><th>Mar-26</th><th>Abr-26</th><th>May-26*</th><th>Var. vs Abr</th><th>Var %</th></tr></thead>
       <tbody>
         <tr class="tbl-section-hdr"><td colspan="7">Tienda Física</td></tr>
         <tr><td>Cuentas acumuladas</td><td>91,045</td><td>100,200</td><td>111,550</td><td>122,168</td><td class="pos">+10,618</td><td class="pos">+9.5%</td></tr>
@@ -459,7 +498,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
     </table>
   </div>
 
-  <div class="section-lbl">Cierre abril 2026 — snapshot por canal</div>
+  <div class="section-lbl">Snapshot al 12 de mayo 2026 — por canal</div>
   <div class="channel-grid">
     <div class="channel-card">
       <div class="channel-hdr"><span class="channel-name fisica">Tienda Física</span><span style="font-size:10px;color:var(--gray-mid);">82.8% de cuentas nuevas</span></div>
@@ -481,7 +520,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 
   <div class="section-lbl">Brecha de conversión · Cuenta → Cliente con saldo</div>
   <div class="brecha-box">
-    <div class="brecha-lbl">Tasa de fondeo por canal · Abril 2026</div>
+    <div class="brecha-lbl">Tasa de fondeo por canal · Mayo 2026 (parcial)</div>
     <div class="brecha-item">
       <div class="brecha-row"><span class="brecha-name">Digital</span><span class="brecha-pct" style="color:var(--pos);">37.3%</span></div>
       <div class="brecha-track"><div class="brecha-fill" style="width:37.3%;background:var(--red);"></div></div>
@@ -500,7 +539,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
   </div>
   <div style="border:1px solid var(--border);border-radius:2px;padding:20px;margin-bottom:4px;">
     <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray-mid);margin-bottom:14px;font-weight:700;">Descripción de la campaña</div>
-    <p style="font-size:13px;color:var(--gray-dark);line-height:1.8;margin-bottom:12px;">La campaña <strong style="color:var(--black);">"Re-Activa tu cuenta"</strong> fue lanzada en abril 2026 para reactivar cuentas inactivas y sin fondear.</p>
+    <p style="font-size:13px;color:var(--gray-dark);line-height:1.8;margin-bottom:12px;">La campaña <strong style="color:var(--black);">"Re-Activa tu cuenta"</strong> fue lanzada en abril 2026 y continúa en mayo. Objetivo: reactivar cuentas inactivas y sin fondear.</p>
     <p style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray-mid);font-weight:700;margin-bottom:6px;">Universo trabajado</p>
     <ul style="padding-left:18px;margin-bottom:12px;font-size:13px;color:var(--gray-dark);line-height:1.9;display:flex;flex-direction:column;gap:3px;">
       <li><strong style="color:var(--black);">2,000 cuentas inactivas</strong> &gt;6 meses — universo de 134.6k (9,171 con fondos)</li>
@@ -706,7 +745,7 @@ html, body { height: 100%; overflow: hidden; background: var(--white); color: va
 </div><!-- /content -->
 
 <footer class="footer">
-  <span>Actinver · Dashboard Activa | Liverpool · Mayo 2026 · Uso interno</span>
+  <span>Actinver · Dashboard Activa | Liverpool · Corte 12 Mayo 2026 · Uso interno</span>
   <span>Para: H. Madero (Chairman) · L. Hernández (CEO)</span>
 </footer>
 </div>
@@ -743,7 +782,7 @@ const RED   = '#E10098';
 const PINK  = '#f4a6d7';
 const BLACK = '#1A1A1A';
 const GRAY  = '#C0C5C5';
-const MESES = ['Ene-26','Feb-26','Mar-26','Abr-26'];
+const MESES = ['Ene-26','Feb-26','Mar-26','Abr-26','May-26*'];
 
 let chartsRendered = false;
 function renderCharts() {
@@ -820,8 +859,8 @@ function renderCanalCharts() {
   new Chart(document.getElementById('chartCanalCuentas'), {
     type: 'bar',
     data: { labels: M, datasets: [
-      { label: 'Tienda Física', data: [91045,100200,111550,122168], backgroundColor: RED,  borderRadius: 0, borderWidth: 0 },
-      { label: 'Digital',       data: [56624, 58768, 61039, 63271],  backgroundColor: PINK, borderRadius: 0, borderWidth: 0 },
+      { label: 'Tienda Física', data: [91045,100200,111550,122168,null], backgroundColor: RED,  borderRadius: 0, borderWidth: 0 },
+      { label: 'Digital',       data: [56624, 58768, 61039, 63271,null],  backgroundColor: PINK, borderRadius: 0, borderWidth: 0 },
     ]},
     options: { responsive:true, maintainAspectRatio:true,
       plugins:{ legend:{display:true,position:'bottom',labels:{boxWidth:9,padding:12}}, tooltip:{callbacks:{label:ctx=>'  '+ctx.parsed.y.toLocaleString('es-MX')}}},
@@ -842,8 +881,8 @@ function renderCanalCharts() {
   new Chart(document.getElementById('chartCanalNuevas'), {
     type: 'bar',
     data: { labels: M, datasets: [
-      { label: 'Tienda Física', data: [7292,8821,10690,10623], backgroundColor: RED,  borderRadius: 0, borderWidth: 0 },
-      { label: 'Digital',       data: [2480,2044, 2111, 2215], backgroundColor: PINK, borderRadius: 0, borderWidth: 0 },
+      { label: 'Tienda Física', data: [7292,8821,10690,10623,null], backgroundColor: RED,  borderRadius: 0, borderWidth: 0 },
+      { label: 'Digital',       data: [2480,2044, 2111, 2215,null], backgroundColor: PINK, borderRadius: 0, borderWidth: 0 },
     ]},
     options: { responsive:true, maintainAspectRatio:true,
       plugins:{ legend:{display:true,position:'bottom',labels:{boxWidth:9,padding:12}}, tooltip:{callbacks:{label:ctx=>'  '+ctx.parsed.y.toLocaleString('es-MX')}}},
@@ -853,8 +892,8 @@ function renderCanalCharts() {
   new Chart(document.getElementById('chartCanalFondeo'), {
     type: 'line',
     data: { labels: M, datasets: [
-      { label: 'Digital',       data: [41.9,39.0,37.8,37.3], borderColor: RED,  backgroundColor:'rgba(225,0,152,0.06)', fill:true, tension:0.3, pointBackgroundColor:RED,  pointRadius:4, borderWidth:2 },
-      { label: 'Tienda Física', data: [6.6, 4.6, 3.7, 3.2],  borderColor: GRAY, backgroundColor:'rgba(176,181,181,0.06)', fill:true, tension:0.3, pointBackgroundColor:GRAY, pointRadius:4, borderWidth:2 },
+      { label: 'Digital',       data: [41.9,39.0,37.8,37.3,56.5], borderColor: RED,  backgroundColor:'rgba(225,0,152,0.06)', fill:true, tension:0.3, pointBackgroundColor:RED,  pointRadius:4, borderWidth:2 },
+      { label: 'Tienda Física', data: [6.6, 4.6, 3.7, 3.2,null],  borderColor: GRAY, backgroundColor:'rgba(176,181,181,0.06)', fill:true, tension:0.3, pointBackgroundColor:GRAY, pointRadius:4, borderWidth:2 },
     ]},
     options: { responsive:true, maintainAspectRatio:true,
       plugins:{ legend:{display:true,position:'bottom',labels:{boxWidth:9,padding:12}}, tooltip:{callbacks:{label:ctx=>'  '+ctx.parsed.y+'%'}}},
