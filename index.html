@@ -192,7 +192,7 @@ button { cursor: pointer; font-family: inherit; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── DASHBOARD VIEW ── */
-.section-label { font-size: var(--text-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 12px; margin-top: 24px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.section-label { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 12px; margin-top: 24px; padding-bottom: 6px; border-bottom: 2px solid var(--black); }
 .section-label:first-child { margin-top: 0; }
 .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 10px; }
 .kpi-grid-2 { grid-template-columns: repeat(4, 1fr); }
@@ -396,16 +396,17 @@ html, body { background: var(--bg); color: var(--text-primary); }
 /* ── SECTION LABEL refinado ── */
 .section-label {
   font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   margin-bottom: 12px;
   margin-top: 22px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--black);
 }
 .section-label:first-child { margin-top: 0; }
+[data-theme="dark"] .section-label { color: #E0E0E0; border-bottom-color: #E0E0E0; }
 
 /* ── KPI CARD refinada ── */
 .kpi-lbl {
@@ -569,24 +570,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
         <!-- Tab Resumen -->
         <div class="dash-panel active" id="dtab-resumen">
 
-          <!-- ── ALERT STRIP — contexto antes que datos ── -->
-          <div class="alert-strip">
-            <div class="alert-strip-label">Esta semana</div>
-            <div class="alert-strip-items" id="alert-strip-items">
-              <div class="alert-item alert-item-pos"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.4L19 9l-5.1 4.1 1.9 5.9L12 16l-3.8 3-1-5.9L2 9l5.1-.6z"/></svg></span><strong>49.6%</strong> fondeo cuentas nuevas — anomalía +2.5x histórico</div>
-              <div class="alert-item alert-item-warn"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><strong>2,705</strong> clientes riesgo churn sin comunicación activa</div>
-              <div class="alert-item alert-item-neg"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>% Fondeo acumulado: <strong>19.1%</strong> — mínimo histórico, −4 pp desde sep-25</div>
-              <div class="alert-item alert-item-pos"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>AUM <strong>$227.3M</strong> — +81% desde lanzamiento, PPTO superado 103.9%</div>
-            </div>
-          </div>
-
           <!-- Banner de comparación activa -->
           <div class="compare-banner" id="compare-banner" role="status" aria-live="polite">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             Comparando <strong id="compare-current-label">May-26</strong> vs <strong id="compare-prev-label">Abr-26</strong> — las variaciones mostradas son relativas al período anterior seleccionado
           </div>
 
-          <div class="section-label" style="margin-top:0;">KPIs acumulados · Corte <span id="hero-period-label">18 mayo 2026</span></div>
+          <div class="section-label" style="margin-top:0;">KPIs acumulados · Corte <span id="hero-period-label">26 mayo 2026</span></div>
 
           <!-- ── HERO ROW: AUM grande + sparkline + 2 KPIs clave ── -->
           <div class="hero-row">
@@ -595,12 +585,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
             <div class="hero-card" id="hero-aum-card">
               <div class="hero-eyebrow">
                 <span class="hero-label">AUM total</span>
-                <span class="hero-ppto-badge" id="hero-ppto-badge">PPTO 103.9% ↑</span>
+                <span class="hero-ppto-badge" id="hero-ppto-badge">PPTO 104.0% ↑</span>
               </div>
-              <div class="hero-number" id="hero-aum-val" aria-live="polite">$227.3M</div>
+              <div class="hero-number" id="hero-aum-val" aria-live="polite">$227.8M</div>
               <div class="hero-meta-row">
                 <span class="hero-delta pos" id="hero-aum-delta">▲ +2.5% vs anterior</span>
-                <span class="hero-sub" id="hero-aum-sub">+$5.4M este período</span>
+                <span class="hero-sub" id="hero-aum-sub">+$5.9M este período</span>
               </div>
               <!-- Mini sparkline -->
               <div class="hero-sparkline-wrap">
@@ -609,7 +599,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
               <div class="hero-from-launch">
                 <span>Desde lanzamiento:</span>
                 <strong id="hero-growth-pct">+81.1%</strong>
-                <span id="hero-growth-abs">($125.5M → $227.3M)</span>
+                <span id="hero-growth-abs">($125.5M → $227.8M)</span>
               </div>
             </div>
 
@@ -617,19 +607,19 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
             <div class="hero-kpi-stack">
               <div class="kpi-card hero-kpi" id="hkpi-clientes">
                 <div class="kpi-lbl">Clientes fondeados</div>
-                <div class="kpi-val" id="hkpi-clientes-val">35,702</div>
-                <div class="kpi-delta pos" id="hkpi-clientes-delta">▲ +0.1% vs anterior</div>
-                <div class="kpi-sub">19.1% de 187,184 cuentas</div>
+                <div class="kpi-val" id="hkpi-clientes-val">35,811</div>
+                <div class="kpi-delta pos" id="hkpi-clientes-delta">▲ +0.5% vs anterior</div>
+                <div class="kpi-sub">19.0% de 188,948 cuentas</div>
               </div>
               <div class="kpi-card hero-kpi" id="hkpi-cuentas">
                 <div class="kpi-lbl">Cuentas acumuladas</div>
-                <div class="kpi-val" id="hkpi-cuentas-val">187,184</div>
-                <div class="kpi-delta pos" id="hkpi-cuentas-delta">▲ +0.9% vs anterior</div>
-                <div class="kpi-sub">+1,672 en el período</div>
+                <div class="kpi-val" id="hkpi-cuentas-val">188,948</div>
+                <div class="kpi-delta pos" id="hkpi-cuentas-delta">▲ +1.9% vs anterior</div>
+                <div class="kpi-sub">+3,436 en el período</div>
               </div>
               <div class="kpi-card hero-kpi muted" id="hkpi-fondeo">
                 <div class="kpi-lbl">% Fondeo acumulado</div>
-                <div class="kpi-val" id="hkpi-fondeo-val">19.1%</div>
+                <div class="kpi-val" id="hkpi-fondeo-val">19.0%</div>
                 <div class="kpi-delta neg" id="hkpi-fondeo-delta">▼ −0.1 pp vs anterior</div>
                 <div class="kpi-sub">Mínimo histórico</div>
               </div>
@@ -639,18 +629,18 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
             <div class="hero-kpi-stack">
               <div class="kpi-card hero-kpi" id="hkpi-saldo">
                 <div class="kpi-lbl">Saldo promedio</div>
-                <div class="kpi-val" id="hkpi-saldo-val">$6,368</div>
-                <div class="kpi-delta pos" id="hkpi-saldo-delta">▲ +2.3% vs anterior</div>
+                <div class="kpi-val" id="hkpi-saldo-val">$6,360</div>
+                <div class="kpi-delta pos" id="hkpi-saldo-delta">▲ +2.2% vs anterior</div>
                 <div class="kpi-sub">Máx: $6,571 (Feb-26)</div>
               </div>
               <div class="kpi-card hero-kpi" id="hkpi-aum-mes">
                 <div class="kpi-lbl">AUM captado (período)</div>
-                <div class="kpi-val" id="hkpi-aum-mes-val">$5.5M</div>
-                <div class="kpi-sub">Parcial — 18 días</div>
+                <div class="kpi-val" id="hkpi-aum-mes-val">$5.9M</div>
+                <div class="kpi-sub">Parcial — 26 días</div>
               </div>
               <div class="kpi-card hero-kpi muted warn-card" id="hkpi-churn">
                 <div class="kpi-lbl">Riesgo churn</div>
-                <div class="kpi-val" id="hkpi-churn-val">2,705</div>
+                <div class="kpi-val" id="hkpi-churn-val">2,735</div>
                 <div class="kpi-delta" style="color:var(--warn);display:flex;align-items:center;gap:4px">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                   7.6% del total
@@ -661,27 +651,72 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
 
           </div>
 
-          <div class="section-label">KPIs del mes (18 días)</div>
+          <div class="section-label">KPIs del mes (26 días)</div>
           <div class="kpi-grid kpi-grid-2">
             <div class="kpi-card">
               <div class="kpi-lbl">Cuentas nuevas</div>
-              <div class="kpi-val">1,713</div>
-              <div class="kpi-sub">Parcial — 18 días</div>
+              <div class="kpi-val">3,477</div>
+              <div class="kpi-sub">Parcial — 26 días</div>
             </div>
             <div class="kpi-card">
               <div class="kpi-lbl">Clientes nuevos</div>
-              <div class="kpi-val">849</div>
-              <div class="kpi-sub" style="color:var(--warn);display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Pendiente cuadrar con Victor</div>
+              <div class="kpi-val">1,398</div>
+              <div class="kpi-sub">Parcial — 26 días</div>
             </div>
             <div class="kpi-card">
               <div class="kpi-lbl">AUM captado</div>
-              <div class="kpi-val">$5.5M</div>
-              <div class="kpi-sub">Parcial — 18 días</div>
+              <div class="kpi-val">$5.9M</div>
+              <div class="kpi-sub">Parcial — 26 días</div>
             </div>
-            <div class="kpi-card" style="border-top-color:var(--warn)">
+            <div class="kpi-card">
               <div class="kpi-lbl">% Fondeo cuentas nuevas</div>
-              <div class="kpi-val">49.6%</div>
-              <div class="kpi-sub" style="color:var(--warn);display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Anomalía vs histórico ~20%</div>
+              <div class="kpi-val">40.2%</div>
+              <div class="kpi-sub" style="color:var(--warn);display:flex;align-items:center;gap:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> +26% vs histórico ~20% — mejora sostenida</div>
+            </div>
+          </div>
+
+          <!-- ── PUNTOS A CONSIDERAR ── -->
+          <div class="section-label" style="margin-top:20px;">Puntos a considerar</div>
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:4px;" data-theme-target="surface">
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="padding-bottom:12px;border-bottom:1px solid var(--border);">
+                <div style="font-size:var(--text-sm);line-height:1.65;color:var(--text-primary);">Esta semana aumentamos el ritmo de aperturas de <strong>95 a 220 por día</strong>, al <strong>50%</strong> del ritmo de meses anteriores.</div>
+              </div>
+              <div style="padding-bottom:12px;border-bottom:1px solid var(--border);">
+                <div style="font-size:var(--text-sm);line-height:1.65;color:var(--text-primary);">Esta semana aumentamos el promedio de clientes diarios de <strong>47 a 70</strong>, al <strong>85%</strong> del ritmo de meses anteriores.</div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px;">Estimación de afectación</div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+                  <div style="text-align:center;padding:10px 8px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
+                    <div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1;">7,000</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-secondary);margin-top:4px;">Aperturas nuevas</div>
+                  </div>
+                  <div style="text-align:center;padding:10px 8px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
+                    <div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1;">700</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-secondary);margin-top:4px;">Clientes con saldo (aprox.)</div>
+                  </div>
+                  <div style="text-align:center;padding:10px 8px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
+                    <div style="font-size:18px;font-weight:700;color:var(--brand);line-height:1;">$1.8M</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-secondary);margin-top:4px;">AUM clientes nuevos</div>
+                  </div>
+                  <div style="text-align:center;padding:10px 8px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
+                    <div style="font-size:18px;font-weight:700;color:var(--text-primary);line-height:1;">~10%</div>
+                    <div style="font-size:var(--text-xs);color:var(--text-secondary);margin-top:4px;">Fondeo estimado (nuevos)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── ESTA SEMANA ── -->
+          <div class="alert-strip" style="margin-top:16px;">
+            <div class="alert-strip-label">Esta semana</div>
+            <div class="alert-strip-items" id="alert-strip-items">
+              <div class="alert-item alert-item-pos"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.4L19 9l-5.1 4.1 1.9 5.9L12 16l-3.8 3-1-5.9L2 9l5.1-.6z"/></svg></span><strong>40.2%</strong> fondeo cuentas nuevas — +2x el histórico ~20%</div>
+              <div class="alert-item alert-item-warn"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><strong>2,735</strong> clientes riesgo churn sin comunicación activa</div>
+              <div class="alert-item alert-item-neg"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>% Fondeo acumulado: <strong>19.0%</strong> — mínimo histórico, −4 pp desde sep-25</div>
+              <div class="alert-item alert-item-pos"><span class="alert-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>AUM <strong>$227.8M</strong> — +81% desde lanzamiento, PPTO superado 103.9%</div>
             </div>
           </div>
 
@@ -694,7 +729,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 </tr>
                 <tr>
                   <td><span class="seg-badge"><span class="seg-dot" style="background:#E10098"></span>Valor alto (&gt;$20k)</span></td>
-                  <td class="num-right">2,739</td>
+                  <td class="num-right">2,746</td>
                   <td class="num-right">7.7%</td>
                   <td class="num-right">~$183M</td>
                   <td>
@@ -706,7 +741,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 </tr>
                 <tr>
                   <td><span class="seg-badge"><span class="seg-dot" style="background:#3B82F6"></span>Valor medio ($5k–$20k)</span></td>
-                  <td class="num-right">3,104</td>
+                  <td class="num-right">3,093</td>
                   <td class="num-right">8.7%</td>
                   <td class="num-right">~$30M</td>
                   <td>
@@ -718,7 +753,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 </tr>
                 <tr>
                   <td><span class="seg-badge"><span class="seg-dot" style="background:#9CA3AF"></span>Valor bajo ($1–$4,999)</span></td>
-                  <td class="num-right">27,154</td>
+                  <td class="num-right">27,237</td>
                   <td class="num-right">76.1%</td>
                   <td class="num-right">~$14M</td>
                   <td>
@@ -730,7 +765,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 </tr>
                 <tr>
                   <td><span class="seg-badge"><span class="seg-dot" style="background:var(--warn)"></span>Riesgo churn</span></td>
-                  <td class="num-right">2,705</td>
+                  <td class="num-right">2,735</td>
                   <td class="num-right" style="color:var(--warn)">7.6%</td>
                   <td class="num-right">—</td>
                   <td><span style="font-size:var(--text-xs);color:var(--gray)">Incl. en seg. bajo</span></td>
@@ -1427,6 +1462,139 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
 [data-theme="dark"] .init-ov-pill.green  { background: rgba(26,158,90,0.15);  color: #6EE0A8; }
 [data-theme="dark"] .init-ov-pill.amber  { background: rgba(212,130,10,0.15); color: #F5C542; }
 
+/* ── Nuevo layout iniciativas ── */
+/* Fila superior: descripción (2/3) + impacto (1/3) */
+.init-top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.init-desc-block {
+  padding: 14px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.init-impact-block {
+  padding: 14px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.init-impact-block ul {
+  margin: 6px 0 0 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.init-impact-block ul li {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+/* Fila semana anterior + próxima semana */
+.init-week-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.init-week-block {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.init-week-block.prev { background: rgba(26,158,90,0.04); border-color: rgba(26,158,90,0.2); }
+.init-week-block.next { background: rgba(37,99,235,0.04); border-color: rgba(37,99,235,0.2); }
+.init-week-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.init-week-block.prev .init-week-label { color: #1A6040; }
+.init-week-block.next .init-week-label { color: #1D4ED8; }
+.init-week-block ul {
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.init-week-block ul li {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+/* Bloque riesgos críticos */
+.init-risks-block {
+  padding: 12px 14px;
+  background: rgba(212,130,10,0.05);
+  border-radius: var(--radius);
+  border: 1px solid rgba(212,130,10,0.3);
+  margin-bottom: 12px;
+}
+.init-risks-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warn);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.init-risks-block ul {
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.init-risks-block ul li {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+.init-risks-block ul li strong { color: var(--warn); }
+/* Dark mode nuevos bloques */
+[data-theme="dark"] .init-desc-block,
+[data-theme="dark"] .init-impact-block { background: #1C1C1C; border-color: #2A2A2A; }
+[data-theme="dark"] .init-week-block.prev { background: rgba(26,158,90,0.08); border-color: rgba(26,158,90,0.2); }
+[data-theme="dark"] .init-week-block.next { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.2); }
+[data-theme="dark"] .init-risks-block { background: rgba(212,130,10,0.08); border-color: rgba(212,130,10,0.25); }
+/* Bloque de estatus general */
+.init-status-block {
+  padding: 13px 16px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+.init-status-block .init-field-label { margin-bottom: 6px; }
+.init-status-date {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-bg);
+  border: 1px solid var(--brand-border);
+  border-radius: 4px;
+  padding: 2px 9px;
+  margin-bottom: 6px;
+}
+.init-status-text {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+[data-theme="dark"] .init-status-block { background: #1C1C1C; border-color: #2A2A2A; }
+/* Responsive */
+@media(max-width:680px) {
+  .init-top-row, .init-week-row { grid-template-columns: 1fr; }
+}
+
 /* Responsive para el nuevo panel */
 @media (max-width: 768px) {
   .init-exec-row { grid-template-columns: 1fr; }
@@ -1500,7 +1668,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 </div>
               </div>
               <div class="init-meta">
-                <span class="status-pill s-warn">Pospuesto</span>
+                <span class="status-pill s-ok">En tiempo</span>
                 <span class="init-date">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                   17 jun 2026
@@ -1511,21 +1679,61 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
               <span class="init-chevron">▾</span>
             </div>
             <div class="init-body">
-              <!-- Resumen ejecutivo -->
-              <div class="init-exec-row">
-                <div class="init-exec-block">
+
+              <!-- Fila 1: Descripción + Impacto esperado -->
+              <div class="init-top-row">
+                <div class="init-desc-block">
                   <div class="init-field-label">Descripción</div>
                   <div class="init-field-value">Rendimientos diferenciados en Cuenta Eje. Sin mínimo: 1–2% · $5k–$20k: 3–4% · &gt;$20k: 6–7% (sin/con portabilidad). Estrategia flexible y escalable que permite reaccionar al mercado.</div>
                 </div>
-                <div class="init-exec-block">
+                <div class="init-impact-block">
                   <div class="init-field-label">Impacto esperado</div>
-                  <div class="init-field-value">+15,400 clientes valor medio · +6,600 valor alto · fondeo nuevas → 40% · AUM +$564M · ventas Liverpool +$2.9MDP anual</div>
-                </div>
-                <div class="init-exec-block">
-                  <div class="init-field-label">Próximos pasos críticos</div>
-                  <div class="init-field-value" style="color:var(--warn)">Autorización Banxico pendiente · RECA sin actualizar · Liberación en APP al 15/06 · Capacitaciones pospuestas a S4 mayo</div>
+                  <ul>
+                    <li>+15,400 clientes valor medio</li>
+                    <li>+6,600 clientes valor alto</li>
+                    <li>Fondeo nuevas cuentas → 40%</li>
+                    <li>AUM +$564M</li>
+                    <li>Ventas Liverpool +$2.9MDP anual</li>
+                  </ul>
                 </div>
               </div>
+
+              <!-- Estatus general -->
+              <div class="init-status-block">
+                <div class="init-field-label">Estatus</div>
+                <div class="init-status-text">Iniciaremos liberaciones parciales de Rendimientos antes del lanzamiento final para validar funcionamiento en producción, ajustar desviaciones y asegurar estabilidad operativa previo a la salida comercial.</div>
+              </div>
+
+              <!-- Fila 2: Semana actual + Próxima semana -->
+              <div class="init-week-row">
+                <div class="init-week-block prev">
+                  <div class="init-week-label">✅ Semana actual</div>
+                  <ul>
+                    <li>Liberación de microservicios — <strong>Liberado</strong></li>
+                    <li>Actualización de la carátula del contrato — Equipo legal Actinver realizando ajustes</li>
+                    <li>Actualización del RECA ante CONDUSEF — En espera de validación de ajustes legales</li>
+                    <li>Solicitud de cambios de contrato y RECA en SAP y SPINE — En espera de cambios</li>
+                    <li>Envío de encuesta a 500 clientes para validar comunicación de tasa de rendimientos</li>
+                  </ul>
+                </div>
+                <div class="init-week-block next">
+                  <div class="init-week-label">📋 Próxima semana</div>
+                  <ul>
+                    <li>Primer corte de pago de rendimientos — <strong>6 de junio</strong></li>
+                    <li>Recopilar primeros resultados de encuesta de comunicación de rendimientos</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Fila 3: Dependencias -->
+              <div class="init-risks-block">
+                <div class="init-risks-label">🔗 Dependencias</div>
+                <ul>
+                  <li>Sin riesgos identificados del lado tecnológico</li>
+                  <li><strong>Autorización regulatoria:</strong> Posible riesgo si no se obtiene la autorización de rendimientos por parte de las autoridades en tiempo y forma</li>
+                </ul>
+              </div>
+
               <!-- Botón IA -->
               <div class="init-ai-bar">
                 <button class="init-ai-btn" onclick="generateInitInsights(1, this)">
@@ -1535,15 +1743,16 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 <span class="init-ai-status" id="ai-status-1"></span>
               </div>
               <div class="init-ai-output" id="ai-out-1"></div>
+
               <!-- Plan de trabajo -->
               <div class="init-field-label" style="margin-top:16px;margin-bottom:8px;">Plan de trabajo</div>
               <table class="init-table">
                 <thead><tr><th>#</th><th>Tarea</th><th>Responsable</th><th>Estatus</th><th>Notas</th></tr></thead>
                 <tbody>
-                  <tr><td>1</td><td>Liberación en APP</td><td>Israel M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Fecha pospuesta — 15 junio</td></tr>
+                  <tr><td>1</td><td>Liberación en APP</td><td>Israel M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Liberación 08 de junio</td></tr>
                   <tr><td>2</td><td>Definición de rendimientos dinámicos</td><td>Israel M.</td><td><span class="it-pill it-done">Completado</span></td><td>Presentado en comité de producto</td></tr>
-                  <tr><td>3</td><td>Autorización de Banxico</td><td>Luis E.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td class="it-risk">Pendiente de autorización</td></tr>
-                  <tr><td>4</td><td>Cambios en carátula de comisiones (RECA)</td><td>Luis E.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td class="it-risk">Pendiente de actualización</td></tr>
+                  <tr><td>3</td><td>Autorización de Banxico</td><td>Luis E.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Pendiente de autorización</td></tr>
+                  <tr><td>4</td><td>Cambios en carátula de comisiones (RECA)</td><td>Luis E.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>En proceso de actualización Legal, para posteriormente envío a CONDUSEF</td></tr>
                   <tr><td>5</td><td>Notificación banner en estado de cuenta</td><td>Luis E. / Mariana M.</td><td><span class="it-pill it-done">Completado</span></td><td>Envío S1 mayo (06–07/05)</td></tr>
                   <tr><td>6</td><td>Campaña de comunicación</td><td>Mariana M.</td><td><span class="it-pill it-done">Completado</span></td><td>Propuesta arte rendimientos + cashback</td></tr>
                   <tr><td>7</td><td>Capacitación a asesores de crédito</td><td>Mariana M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026 (posponer)</td></tr>
@@ -1581,20 +1790,56 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
               <span class="init-chevron">▾</span>
             </div>
             <div class="init-body">
-              <div class="init-exec-row">
-                <div class="init-exec-block">
+
+              <!-- Fila 1: Descripción + Impacto esperado -->
+              <div class="init-top-row">
+                <div class="init-desc-block">
                   <div class="init-field-label">Descripción</div>
                   <div class="init-field-value">Devolución del 5% sobre compras en Liverpool acreditada en cuenta Activa. % ajustable según temporalidad y estrategia comercial.</div>
                 </div>
-                <div class="init-exec-block">
+                <div class="init-impact-block">
                   <div class="init-field-label">Impacto esperado</div>
-                  <div class="init-field-value">+5,500 clientes valor medio · +5,500 valor alto · TDD +$12M · AUM +$396M · ventas Liverpool +2.9x</div>
-                </div>
-                <div class="init-exec-block">
-                  <div class="init-field-label">Próximos pasos críticos</div>
-                  <div class="init-field-value">Listado afiliaciones/tienda con Liverpool · Campaña digital post Día de Madres · Capacitación CAT y asesores pendiente de % final</div>
+                  <ul>
+                    <li>+5,500 clientes valor medio</li>
+                    <li>+5,500 clientes valor alto</li>
+                    <li>TDD +$12M en transaccionalidad</li>
+                    <li>AUM +$396M</li>
+                    <li>Ventas Liverpool +2.9x</li>
+                  </ul>
                 </div>
               </div>
+
+              <!-- Estatus general -->
+              <div class="init-status-block">
+                <div class="init-field-label">Estatus</div>
+                <div class="init-status-text">Primer cashback del <strong>10%</strong> alineado a la estrategia Hot Sale de Liverpool — vigencia <strong>25 mayo al 2 de junio</strong>, como promoción Liverpool. Fecha tentativa para iniciar comunicaciones del cashback del <strong>5%</strong> a partir del <strong>15 de junio</strong> (posterior a campañas del Día del Padre). Comunicación e inicio de operación <strong>sujetos a confirmar disponibilidad del proyecto de parametrización</strong> para esa fecha.</div>
+              </div>
+
+              <!-- Fila 2: Semana actual + Próxima semana -->
+              <div class="init-week-row">
+                <div class="init-week-block prev">
+                  <div class="init-week-label">✅ Semana actual</div>
+                  <ul>
+                    <li>Bajada de comunicación para tener listos los mensajes</li>
+                  </ul>
+                </div>
+                <div class="init-week-block next">
+                  <div class="init-week-label">📋 Próxima semana</div>
+                  <ul>
+                    <li>Definición de estrategia y fechas para iniciar comunicaciones (solo cashback o en conjunto con el proyecto de parametrización)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Fila 3: Dependencias -->
+              <div class="init-risks-block">
+                <div class="init-risks-label">🔗 Dependencias</div>
+                <ul>
+                  <li><strong>Materiales impresos:</strong> Pueden tardar — hasta no tener definición de fechas no se pueden tener listos. Todo lo digital estaría listo</li>
+                </ul>
+              </div>
+
+              <!-- Botón IA -->
               <div class="init-ai-bar">
                 <button class="init-ai-btn" onclick="generateInitInsights(2, this)">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.4L19 9l-5.1 4.1 1.9 5.9L12 16l-3.8 3-1-5.9L2 9l5.1-.6z"/></svg>
@@ -1603,6 +1848,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 <span class="init-ai-status" id="ai-status-2"></span>
               </div>
               <div class="init-ai-output" id="ai-out-2"></div>
+
+              <!-- Plan de trabajo -->
               <div class="init-field-label" style="margin-top:16px;margin-bottom:8px;">Plan de trabajo</div>
               <table class="init-table">
                 <thead><tr><th>#</th><th>Tarea</th><th>Responsable</th><th>Estatus</th><th>Notas</th></tr></thead>
@@ -1611,11 +1858,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                   <tr><td>2</td><td>Definición de reglas y % de cashback</td><td>Iván A.</td><td><span class="it-pill it-done">Completado</span></td><td>Definido 5% (temporal)</td></tr>
                   <tr><td>3</td><td>Comunicación de campaña de cashback</td><td>Mariana M.</td><td><span class="it-pill it-done">Completado</span></td><td>Compromiso S1 mayo</td></tr>
                   <tr><td>4</td><td>Definición fiscal retención de impuestos</td><td>Juan D.</td><td><span class="it-pill it-done">Completado</span></td><td>Flujo de retención listo</td></tr>
-                  <tr><td>5</td><td>Listado de afiliaciones / tienda</td><td>Victor R.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Proceso interno Liverpool (S1 mayo)</td></tr>
-                  <tr><td>6</td><td>Campaña digital y tiendas</td><td>Mariana M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo (post Día de las Madres)</td></tr>
+                  <tr><td>5</td><td>Listado de afiliaciones / tienda</td><td>Victor R.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Liberación 15 de junio</td></tr>
+                  <tr><td>6</td><td>Campaña digital y tiendas</td><td>Mariana M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>1 de junio se confirma si salimos el 15 de junio</td></tr>
                   <tr><td>7</td><td>Reportería nueva</td><td>Eder C.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Falta definir gestión de info</td></tr>
                   <tr><td>8</td><td>Capacitación al CAT</td><td>Juan D.</td><td><span class="it-pill it-tbd">Por definir</span></td><td>S1 mayo (sujeto a % definido)</td></tr>
-                  <tr><td>9</td><td>Comunicación a asesores de crédito</td><td>Alberto A.</td><td><span class="it-pill it-tbd">Por definir</span></td><td>S1 mayo (sujeto a % definido)</td></tr>
+                  <tr><td>9</td><td>Comunicación a asesores de crédito</td><td>Alberto A.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Se comunica 10 de junio</td></tr>
                   <tr><td>10</td><td>Banner en producto</td><td>Israel M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
                   <tr><td>11</td><td>Liberación iniciativa</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
                 </tbody>
@@ -1639,7 +1886,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 <span class="status-pill s-warn">Atención requerida</span>
                 <span class="init-date">
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                  1 jun 2026
+                  1 jul 2026
                 </span>
                 <span class="init-owner">Rodrigo G.</span>
                 <span class="init-progress-txt warn">3/17</span>
@@ -1647,20 +1894,57 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
               <span class="init-chevron">▾</span>
             </div>
             <div class="init-body">
-              <div class="init-exec-row">
-                <div class="init-exec-block">
+
+              <!-- Fila 1: Descripción + Impacto esperado -->
+              <div class="init-top-row">
+                <div class="init-desc-block">
                   <div class="init-field-label">Descripción</div>
                   <div class="init-field-value">Asesores Actinver en 6 tiendas Liverpool. Piloto con 1 TOP + 1 LOW. Objetivo: cerrar brecha fondeo tienda (3.2%) vs digital (37.3%).</div>
                 </div>
-                <div class="init-exec-block">
+                <div class="init-impact-block">
                   <div class="init-field-label">Impacto esperado</div>
-                  <div class="init-field-value">Incremento fondeo en tienda · Escalable a 6 tiendas · Captura de segmento medio y alto en punto de venta físico</div>
-                </div>
-                <div class="init-exec-block">
-                  <div class="init-field-label" style="color:var(--neg)">Puntos críticos</div>
-                  <div class="init-field-value" style="color:var(--neg)">Contratación: falta 1 perfil. Contrato y REPSE urgente (lunes 25/05) · 14 de 17 tareas aún en desarrollo</div>
+                  <ul>
+                    <li>Incremento fondeo en tienda</li>
+                    <li>Escalable a 6 tiendas</li>
+                    <li>Captura segmento medio y alto en PdV físico</li>
+                  </ul>
                 </div>
               </div>
+
+              <!-- Estatus general -->
+              <div class="init-status-block">
+                <div class="init-field-label">Estatus</div>
+                <div class="init-status-text">Arranque operativo planeado para el <strong>1 de julio</strong>. Proceso de contratación en curso — entrevistas programadas para la próxima semana. Validación de REPSE en proceso con equipos legales de Actinver y Liverpool.</div>
+              </div>
+
+              <!-- Fila 2: Semana actual + Próxima semana -->
+              <div class="init-week-row">
+                <div class="init-week-block prev">
+                  <div class="init-week-label">✅ Semana actual</div>
+                  <ul>
+                    <li>Ajuste de perfil con CH y solicitud de entrevistas para la próxima semana</li>
+                    <li>Revisión con equipo legal Actinver sobre necesidad de REPSE — en proceso de validación por equipo legal Liverpool</li>
+                  </ul>
+                </div>
+                <div class="init-week-block next">
+                  <div class="init-week-label">📋 Próxima semana</div>
+                  <ul>
+                    <li>Llevar a cabo al menos <strong>5 entrevistas</strong> para avanzar en la selección</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Fila 3: Dependencias -->
+              <div class="init-risks-block">
+                <div class="init-risks-label">🔗 Dependencias</div>
+                <ul>
+                  <li><strong>Assessment de CH:</strong> Selección de persona del CAT — pendiente Anabel</li>
+                  <li><strong>Materiales de asesoría:</strong> Armado pendiente — responsable Juan de Dios</li>
+                  <li><strong>Esquema de comisiones:</strong> Alineación pendiente entre Actinver y Liverpool</li>
+                </ul>
+              </div>
+
+              <!-- Botón IA -->
               <div class="init-ai-bar">
                 <button class="init-ai-btn" onclick="generateInitInsights(3, this)">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.4L19 9l-5.1 4.1 1.9 5.9L12 16l-3.8 3-1-5.9L2 9l5.1-.6z"/></svg>
@@ -1669,6 +1953,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 <span class="init-ai-status" id="ai-status-3"></span>
               </div>
               <div class="init-ai-output" id="ai-out-3"></div>
+
+              <!-- Plan de trabajo -->
               <div class="init-field-label" style="margin-top:16px;margin-bottom:8px;">Plan de trabajo</div>
               <table class="init-table">
                 <thead><tr><th>#</th><th>Tarea</th><th>Responsable</th><th>Estatus</th><th>Notas</th></tr></thead>
@@ -1677,11 +1963,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                   <tr><td>2</td><td>VOBO Dir. de Crédito (Claudia / Daniel)</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>Autorizado para tiendas LOW</td></tr>
                   <tr><td>3</td><td>Definición de operación (horarios, vestimenta)</td><td>Rodrigo G.</td><td><span class="it-pill it-done">Completado</span></td><td>S4 abril 2026</td></tr>
                   <tr><td>4</td><td>Definición de tiendas para piloto</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>1 TOP + 1 LOW seleccionadas</td></tr>
-                  <tr><td>5</td><td>Scouting para mobiliario en tiendas</td><td>Fernando S.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026 (08/05)</td></tr>
+                  <tr><td>5</td><td>Scouting para mobiliario en tiendas</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>Santa Fe — módulo en crédito definido</td></tr>
                   <tr><td>6</td><td>Esquema y objetivos del asesor</td><td>Rodrigo G.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026</td></tr>
                   <tr><td>7</td><td>Pruebas de conectividad WIFI y sistemas</td><td>Rodrigo G.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
-                  <tr><td>8</td><td>Proceso de contratación</td><td>Rodrigo G. / RRHH</td><td><span class="it-pill it-risk">Riesgo</span></td><td class="it-risk">Falta 1 perfil. Posiciones autorizadas</td></tr>
-                  <tr><td>9</td><td>Permisos y accesos a tienda</td><td>Fernando S.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Compromiso S1 mayo 2026</td></tr>
+                  <tr><td>8</td><td>Proceso de contratación</td><td>Rodrigo G. / RRHH</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>1 perfil tienda LOW confirmado — falta tienda TOP</td></tr>
+                  <tr><td>9</td><td>Permisos y accesos a tienda</td><td>Fernando S.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Pendiente contrato Actinver y REPSE</td></tr>
                   <tr><td>10</td><td>Software, hardware y credenciales</td><td>Rodrigo G.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Compromiso S1 mayo 2026</td></tr>
                   <tr><td>11</td><td>Capacitación asesores de crédito</td><td>Fernando S.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
                   <tr><td>12</td><td>Capacitación asesores de inversión</td><td>Rodrigo G. / Fernando S.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
@@ -1689,7 +1975,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                   <tr><td>14</td><td>Materiales impresos de apoyo</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026</td></tr>
                   <tr><td>15</td><td>Capacitación al CAT</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
                   <tr><td>16</td><td>Reportería nueva para TDD</td><td>Eder C. + Victor</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026</td></tr>
-                  <tr><td>17</td><td>Liberación iniciativa</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Inicio operaciones 1 de junio</td></tr>
+                  <tr><td>17</td><td>Liberación iniciativa</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Inicio de operaciones 1 de julio</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1719,20 +2005,57 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
               <span class="init-chevron">▾</span>
             </div>
             <div class="init-body">
-              <div class="init-exec-row">
-                <div class="init-exec-block">
+
+              <!-- Fila 1: Descripción + Impacto esperado -->
+              <div class="init-top-row">
+                <div class="init-desc-block">
                   <div class="init-field-label">Descripción</div>
-                  <div class="init-field-value">Entregar TDD en el momento de apertura en tienda, eliminando la fricción del envío postal. Piloto en 3 tiendas TOP + 3 LOW.</div>
+                  <div class="init-field-value">Busca entregar la TDD en el mismo momento de la apertura en tienda Liverpool, eliminando la fricción del envío postal y aumentando la activación inmediata.</div>
                 </div>
-                <div class="init-exec-block">
+                <div class="init-impact-block">
                   <div class="init-field-label">Impacto esperado</div>
-                  <div class="init-field-value">TDD +$24M en transaccionalidad · Reducción de fricción en onboarding · Mayor conversión a cliente fondeado desde apertura</div>
-                </div>
-                <div class="init-exec-block">
-                  <div class="init-field-label">Próximos pasos críticos</div>
-                  <div class="init-field-value">Análisis técnico Israel M. (S3 mayo) · Priorización de desarrollo TBD · 13 tareas en "Por iniciar" — dependiente de priorización</div>
+                  <ul>
+                    <li>TDD +$24M en transaccionalidad</li>
+                    <li>Reducción de fricción en onboarding</li>
+                    <li>Mayor conversión a cliente fondeado desde apertura</li>
+                  </ul>
                 </div>
               </div>
+
+              <!-- Estatus general -->
+              <div class="init-status-block">
+                <div class="init-field-label">Estatus</div>
+                <div class="init-status-text">Se generaron las HUs necesarias para el piloto. Validación de factibilidad concluida. Sesiones de análisis técnico realizadas con líderes de célula.</div>
+              </div>
+
+              <!-- Semana actual + Próxima semana -->
+              <div class="init-week-row">
+                <div class="init-week-block prev">
+                  <div class="init-week-label">✅ Semana actual</div>
+                  <ul>
+                    <li>—</li>
+                  </ul>
+                </div>
+                <div class="init-week-block next">
+                  <div class="init-week-label">📋 Próxima semana</div>
+                  <ul>
+                    <li>Definir proceso operativo (Operaciones Pasivas, IDEMIA, DHL y Operación de Sucursales)</li>
+                    <li>Continuar refinamientos</li>
+                    <li>Concluir análisis técnico y estimación de esfuerzo</li>
+                    <li>Validar y generar requerimiento a Control de Accesos para habilitar permisos del asesor en SAP</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Dependencias -->
+              <div class="init-risks-block">
+                <div class="init-risks-label">🔗 Dependencias</div>
+                <ul>
+                  <li><strong>—</strong></li>
+                </ul>
+              </div>
+
+              <!-- Botón IA -->
               <div class="init-ai-bar">
                 <button class="init-ai-btn" onclick="generateInitInsights(4, this)">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.4L19 9l-5.1 4.1 1.9 5.9L12 16l-3.8 3-1-5.9L2 9l5.1-.6z"/></svg>
@@ -1741,28 +2064,29 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
                 <span class="init-ai-status" id="ai-status-4"></span>
               </div>
               <div class="init-ai-output" id="ai-out-4"></div>
+
+              <!-- Plan de trabajo -->
               <div class="init-field-label" style="margin-top:16px;margin-bottom:8px;">Plan de trabajo</div>
               <table class="init-table">
                 <thead><tr><th>#</th><th>Tarea</th><th>Responsable</th><th>Estatus</th><th>Notas</th></tr></thead>
                 <tbody>
-                  <tr><td>1</td><td>Espacio de resguardo de TDD</td><td>Juan D.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S4 mayo 2026</td></tr>
-                  <tr><td>2</td><td>Definición de tiendas para piloto</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>3 TOP + 3 LOW compartidas</td></tr>
-                  <tr><td>3</td><td>Pruebas de conectividad WIFI y sistemas</td><td>Rodrigo G.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S4 mayo 2026</td></tr>
-                  <tr><td>4</td><td>Nuevo stock TDD con nueva imagen</td><td>Juan D.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Compromiso S2 mayo</td></tr>
+                  <tr><td>1</td><td>Espacio de resguardo de TDD</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>Caja fuerte crédito</td></tr>
+                  <tr><td>2</td><td>Definición de tiendas para piloto</td><td>Fernando S.</td><td><span class="it-pill it-done">Completado</span></td><td>Listado 3 TOP + 3 LOW compartido</td></tr>
+                  <tr><td>3</td><td>Pruebas de conectividad WIFI y sistemas</td><td>Rodrigo G.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
+                  <tr><td>4</td><td>Nuevo stock TDD con nueva imagen</td><td>Juan D.</td><td><span class="it-pill it-risk">Retraso</span></td><td class="it-risk">Compromiso S4 abril — con retraso</td></tr>
                   <tr><td>5</td><td>Reportería nueva para TDD</td><td>Eder C.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026</td></tr>
-                  <tr><td>6</td><td>Definición funcional Liverpool Pocket</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo 2026</td></tr>
-                  <tr><td>7</td><td>Definición del proceso operativo</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo 2026</td></tr>
-                  <tr><td>8</td><td>Análisis técnico</td><td>Israel M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S3 mayo 2026</td></tr>
-                  <tr><td>9</td><td>Priorización de desarrollo</td><td>Diego G. / Israel M.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S4 mayo 2026</td></tr>
-                  <tr><td>10</td><td>Diseño UX/UI</td><td>Israel M.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S1 junio 2026</td></tr>
-                  <tr><td>11</td><td>Desarrollo e implementación en APP</td><td>Israel M.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
-                  <tr><td>12</td><td>Tiendas virtuales en SAP</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S4 mayo 2026</td></tr>
-                  <tr><td>13</td><td>Kick off áreas operativas Actinver</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
-                  <tr><td>14</td><td>Kick off Idemia y DHL (SLAs)</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
-                  <tr><td>15</td><td>Kick off CAT (impacto piloto)</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
-                  <tr><td>16</td><td>Pruebas circuito operativo TDD</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>S3 y S4 mayo 2026</td></tr>
-                  <tr><td>17</td><td>Capacitación Ejecutivo Activa</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
-                  <tr><td>18</td><td>Inventario inicial TDD genéricas</td><td>Corina L. / Abril Q.</td><td><span class="it-pill it-tbd">Por iniciar</span></td><td>Dependiente de priorización</td></tr>
+                  <tr><td>6</td><td>Definición del proceso operativo (Pasivas y Soporte Producción)</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo 2026</td></tr>
+                  <tr><td>7</td><td>Tiendas virtuales en SAP</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S3 mayo 2026</td></tr>
+                  <tr><td>8</td><td>Definición de cambio en Liverpool Pocket</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 mayo 2026</td></tr>
+                  <tr><td>9</td><td>Análisis técnico y priorización</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo 2026</td></tr>
+                  <tr><td>10</td><td>Diseño UX/UI</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S2 mayo 2026</td></tr>
+                  <tr><td>11</td><td>Actualización en la APP</td><td>Israel M.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>Diseño UX 30 jun — desarrollo 1ra semana julio</td></tr>
+                  <tr><td>12</td><td>Kick off Op. Pasivas y Soporte Producción</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S3 mayo 2026</td></tr>
+                  <tr><td>13</td><td>Kick off Idemia y DHL (SLAs)</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S3 mayo 2026</td></tr>
+                  <tr><td>14</td><td>Pruebas circuito operativo TDD</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
+                  <tr><td>15</td><td>Kick off CAT (impacto piloto)</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S3 mayo 2026</td></tr>
+                  <tr><td>16</td><td>Capacitación Ejecutivo Activa</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S4 mayo 2026</td></tr>
+                  <tr><td>17</td><td>Inventario inicial TDD genéricas</td><td>Corina L.</td><td><span class="it-pill it-dev">En desarrollo</span></td><td>S1 junio 2026</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1849,17 +2173,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
 
       <!-- ══ VIEW: INSIGHTS IA ══ -->
       <div class="view" id="view-insights">
-        <div class="section-label">Outputs de agentes IA — Corte 18 mayo 2026</div>
+        <div class="section-label">Outputs de agentes IA — Corte 26 mayo 2026</div>
         <div class="insight-grid">
           <div class="insight-card">
             <div class="insight-card-header">
               <span class="insight-badge badge-analyst">📈 Analyst Agent</span>
             </div>
             <ul class="insight-list">
-              <li class="pos">AUM creció +2.5% a $227.3M — tendencia consistente desde sep-25</li>
-              <li class="pos">Saldo promedio recuperó terreno: $6,368 vs $6,224 en abril (+2.3%)</li>
-              <li class="neg">% fondeo acumulado en declive sostenido: 23% → 19.1% en 8 meses</li>
-              <li>Anomalía crítica: fondeo mayo 49.6% vs histórico ~20% — causa no identificada</li>
+              <li class="pos">AUM creció +2.7% a $227.8M — tendencia consistente desde sep-25</li>
+              <li class="pos">Saldo promedio: $6,360 vs $6,224 en abril (+2.2%)</li>
+              <li class="neg">% fondeo acumulado en declive sostenido: 23% → 19.0% en 8 meses</li>
+              <li>Fondeo mayo 40.2% — 2x el histórico ~20%, mejora sostenida</li>
               <li class="neg">Concentración AUM: 7.7% de clientes tienen 80% de activos</li>
             </ul>
           </div>
@@ -1881,7 +2205,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brand); outline
             <ul class="insight-list">
               <li class="neg">Riesgo concentración AUM: caída de clientes alto valor impacto directo en P&L</li>
               <li class="neg">Módulos en tienda: sin asesor para junio, iniciativa 3 falla el deadline</li>
-              <li class="neg">2,705 clientes riesgo churn no tienen comunicación activa todavía</li>
+              <li class="neg">2,735 clientes riesgo churn no tienen comunicación activa todavía</li>
               <li class="pos">Oportunidad: 27k clientes valor bajo — convertir 10% a valor medio = +$15M AUM</li>
               <li class="pos">Anomalía fondeo mayo: si confirma, estrategia digital está funcionando mejor</li>
             </ul>
@@ -1997,7 +2321,7 @@ const INIT_DATA = {
   },
   3: {
     nombre: 'Asesores Actinver en Tiendas Liverpool',
-    lanzamiento: '1 jun 2026',
+    lanzamiento: '1 jul 2026',
     responsable: 'Rodrigo G.',
     total: 17, completadas: 3, en_desarrollo: 14, por_iniciar: 0, en_riesgo: 1,
     tareas_criticas: [
@@ -2241,18 +2565,18 @@ function renderSegmentChart() {
 const RES = {
   meses: ['Sep-25','Oct-25','Nov-25','Dic-25','Ene-26','Feb-26','Mar-26','Abr-26','May-26'],
   parcial: true, // mayo es parcial
-  cuentasAcum:   [100006,113505,125616,137987,147767,159009,172652,185512,187184],
+  cuentasAcum:   [100006,113505,125616,137987,147767,159009,172652,185512,188948],
   cuentasNuevas: [12850, 12501, 13068, 11406, 10115, 11358, 13156, 12855, 1713],
-  clientesAcum:  [23032, 24210, 25749, 28674, 30332, 31587, 32685, 35649, 35702],
-  fondeoAcum:    [23.0,  21.3,  20.5,  20.8,  20.5,  19.9,  18.9,  19.2,  19.1],
-  fondeoNuevas:  [22.1,  14.1,  15.8,  29.9,  21.9,  21.5,  20.1,  35.4,  49.6],
-  churnRiesgo:   [1917,  1980,  2021,  2029,  2237,  2472,  2694,  2712,  2705],
+  clientesAcum:  [23032, 24210, 25749, 28674, 30332, 31587, 32685, 35649, 35811],
+  fondeoAcum:    [23.0,  21.3,  20.5,  20.8,  20.5,  19.9,  18.9,  19.2,  19.0],
+  fondeoNuevas:  [22.1,  14.1,  15.8,  29.9,  21.9,  21.5,  20.1,  35.4,  40.2],
+  churnRiesgo:   [1917,  1980,  2021,  2029,  2237,  2472,  2694,  2712,  2735],
   churnMensual:  [470,   585,   526,   677,   556,   523,   723,   697,   392],
   churnPct:      [2.15,  2.48,  2.11,  2.49,  1.88,  1.69,  2.25,  2.04,  1.10],
-  aumTotal:      [125.5, 135.7, 145.8, 175.0, 194.7, 207.6, 210.7, 221.9, 227.3],
+  aumTotal:      [125.5, 135.7, 145.8, 175.0, 194.7, 207.6, 210.7, 221.9, 227.8],
   aumChequeras:  [53.4,  58.5,  64.7,  80.0,  86.4,  89.6,  100.7, 104.6, 107.5],
   aumFondos:     [72.1,  77.2,  81.1,  95.0,  108.3, 118.0, 110.0, 117.2, 119.9],
-  saldoProm:     [5449,  5603,  5662,  6103,  6418,  6571,  6448,  6224,  6368],
+  saldoProm:     [5449,  5603,  5662,  6103,  6418,  6571,  6448,  6224,  6360],
   segBajo:       [17343, 18252, 19515, 21543, 22585, 23537, 24461, 27140, 27154],
   segMedio:      [2130,  2245,  2376,  2889,  3105,  3090,  2993,  3126,  3104],
   segAlto:       [1642,  1733,  1837,  2213,  2405,  2488,  2537,  2671,  2739],
@@ -2313,7 +2637,7 @@ const LENSES = {
       const crecTotal = pct(last(d.cuentasAcum), cuentasSep);
       return [
         makeCard('Cuentas acumuladas', fmt(last(d.cuentasAcum),'n'), varCA+'% vs Abr', 'Total desde Sep-25: +'+fmt(last(d.cuentasAcum)-cuentasSep,'n'), ''),
-        makeCard('Clientes fondeados', fmt(last(d.clientesAcum),'n'), varCL+'% vs Abr', '19.1% del total de cuentas', ''),
+        makeCard('Clientes fondeados', fmt(last(d.clientesAcum),'n'), varCL+'% vs Abr', '19.0% del total de cuentas', ''),
         makeCard('% Fondeo acumulado', fmt(fondAcum,'pct'), varFond+' pp vs Abr', 'Tendencia decreciente desde sep-25', 'warn'),
         makeCard('Crecimiento total', '+'+crecTotal+'%', '+'+fmt(last(d.cuentasAcum)-cuentasSep,'n')+' cuentas', 'Sep-25 → May-26 (8 meses)', ''),
       ];
@@ -2433,7 +2757,7 @@ const LENSES = {
       const ltvImplied = (last(d.saldoProm) * (1 - last(d.churnPct)/100) * 12).toFixed(0);
       return [
         makeCard('Riesgo churn (acum.)', fmt(last(d.churnRiesgo),'n'), varChurnR+'% vs Abr', '7.6% del total de clientes', 'warn'),
-        makeCard('Churn mensual mayo', fmt(last(d.churnMensual),'n'), varChurnM+'% vs Abr', 'Parcial — 18 días', ''),
+        makeCard('Churn mensual mayo', fmt(last(d.churnMensual),'n'), varChurnM+'% vs Abr', 'Parcial — 26 días', ''),
         makeCard('% Churn mensual', churnPctActual+'%', (last(d.churnPct)-prev(d.churnPct)).toFixed(2)+' pp vs Abr', 'Menor % desde inicio', 'muted'),
         makeCard('Clientes nuevos vs perdidos', fmt(last(d.clientesNuevos),'n')+' ent.', 'vs '+fmt(last(d.churnMensual),'n')+' sal.', 'Balance mayo: +'+(last(d.clientesNuevos)-last(d.churnMensual)), ''),
       ];
@@ -2470,10 +2794,10 @@ const LENSES = {
         const mejorPct = Math.min(...d.churnPct.filter(v=>v>0));
         return [
           { tipo:'pos', txt:`Churn % alcanzó su <strong>mínimo histórico en mayo: ${last(d.churnPct).toFixed(2)}%</strong>. El pico fue ${d.meses[d.churnPct.indexOf(Math.max(...d.churnPct))]} con ${Math.max(...d.churnPct).toFixed(2)}%.` },
-          { tipo:'warn', txt:`<strong>2,705 clientes en riesgo churn</strong> con saldo ~$0. AUM potencialmente en riesgo: <strong>~$${riesgoAUM}M</strong> si se activan y luego salen.` },
+          { tipo:'warn', txt:`<strong>2,735 clientes en riesgo churn</strong> con saldo ~$0. AUM potencialmente en riesgo: <strong>~$${riesgoAUM}M</strong> si se activan y luego salen.` },
           { tipo:'neg', txt:`El mes con mayor churn absoluto fue <strong>${maxMes} (${maxChurn.toLocaleString('es-MX')} bajas)</strong>. Pico coincide con el inicio de la temporada de vacaciones — patrón estacional a monitorear.` },
-          { tipo:'pos', txt:`Mayo tiene el mejor balance entrada/salida: <strong>849 nuevos vs 392 churn</strong>. Ratio 2.2:1 — el mejor de los últimos 4 meses.` },
-          { tipo:'rec', txt:`<strong>Acción:</strong> Los 2,705 en riesgo necesitan comunicación activa <em>antes</em> del lanzamiento de Rendimientos Dinámicos — son los candidatos perfectos para reactivación.` },
+          { tipo:'pos', txt:`Mayo tiene el mejor balance entrada/salida: <strong>1,398 nuevos vs 597 churn</strong>. Ratio 2.3:1 — el mejor de los últimos 4 meses.` },
+          { tipo:'rec', txt:`<strong>Acción:</strong> Los 2,735 en riesgo necesitan comunicación activa <em>antes</em> del lanzamiento de Rendimientos Dinámicos — son los candidatos perfectos para reactivación.` },
         ];
       }
     }
